@@ -142,3 +142,98 @@ body[data-page] .brand,body:not([data-page]) .brand{font-weight:900;letter-spaci
  body:not([data-page]) .product-card img,body:not([data-page]) .spotlight img,
  body[data-page] .md-phone-catalog .md-tile-visual img{transition:none!important}
 }
+
+
+/* MD PHONE | Fotos recortadas, sem qualquer painel branco | 2026-11-20
+   A fotografia tem transparencia REAL; o fundo pertence somente ao site. */
+:root{--md-photo-glow:radial-gradient(ellipse at 50% 50%,rgba(65,133,84,.20) 0%,rgba(10,42,27,.08) 52%,transparent 78%)}
+body:not([data-page]) .hero-visual,
+body:not([data-page]) .spotlight-visual,
+body:not([data-page]) .product-card .product-visual,
+body:not([data-page]) .dialog-product-visual,
+body[data-page] .md-phone-catalog .md-tile-visual,
+body[data-page] .model-art,
+body[data-page] .product-photo{
+ background:var(--md-photo-glow)!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+}
+body:not([data-page]) .hero-visual:before{display:none!important;content:none!important}
+body:not([data-page]) .hero-visual img,
+body:not([data-page]) .spotlight-visual img,
+body:not([data-page]) .product-card .product-visual img,
+body:not([data-page]) .dialog-product-visual img,
+body[data-page] .md-phone-catalog .md-tile-visual img,
+body[data-page] .model-art img,
+body[data-page] .product-photo img{
+ mix-blend-mode:normal!important;
+ object-fit:contain!important;
+ object-position:center!important;
+ filter:drop-shadow(0 18px 25px rgba(0,0,0,.23))!important;
+}
+/* Os recortes ja incluem preenchimento no canvas: nao ampliar alem da borda do card. */
+body:not([data-page]) .product-card .product-visual img,
+body:not([data-page]) .spotlight-visual img,
+body[data-page] .md-phone-catalog .md-tile-visual img{
+ max-width:100%!important;max-height:100%!important;
+ transform:scale(1.03)!important;
+ transition:transform .32s ease!important;
+}
+body:not([data-page]) .product-card:hover .product-visual img,
+body:not([data-page]) .spotlight:hover .spotlight-visual img,
+body[data-page] .md-phone-catalog .md-phone-tile:hover .md-tile-visual img{
+ transform:scale(1.055)!important;
+}
+body:not([data-page]) .hero-visual img{transform:scale(1.04)!important}
+body:not([data-page]) .hero-flag{
+ background:#0c2c1fee!important;
+ border:1px solid rgba(159,226,178,.27)!important;
+ box-shadow:0 16px 38px #0003!important;
+}
+body:not([data-page]) .hero-flag strong{color:#f2fff5!important}
+body:not([data-page]) .hero-flag small{color:#b6d4bf!important}
+body:not([data-page]) .hero-flag b{color:#7df2a5!important}
+body:not([data-page]) .spotlight,
+body:not([data-page]) .product-card{
+ background:#11291c!important;
+ border-color:#ffffff1f!important;
+}
+body:not([data-page]) .spotlight .spotlight-visual,
+body:not([data-page]) .product-card .product-visual{
+ padding:4px!important;
+ margin-top:12px;
+}
+body:not([data-page]) .product-card .product-visual{height:470px!important;min-height:470px!important}
+body:not([data-page]) .spotlight-visual{height:460px!important;min-height:460px!important}
+body:not([data-page]) .dialog-product-visual{background:radial-gradient(ellipse at 50% 40%,#244b32 0%,#0f2c1e 73%)!important}
+body[data-page] .md-phone-catalog .md-tile-visual{height:420px!important;min-height:420px!important}
+body[data-page] .md-phone-catalog .md-tile-symbol{display:none!important}
+body[data-page] .md-phone-catalog .md-tile-visual img{transform:scale(1.03)!important}
+body[data-page] .md-phone-catalog .md-phone-tile:hover .md-tile-visual img{transform:scale(1.055)!important}
+body[data-page] .model-art img,
+body[data-page] .product-photo img{
+ transform:none!important;
+ animation:none!important;
+}
+@media(max-width:950px){
+ body:not([data-page]) .product-card .product-visual{height:400px!important;min-height:400px!important}
+ body:not([data-page]) .spotlight-visual{height:420px!important;min-height:420px!important}
+ body[data-page] .md-phone-catalog .md-tile-visual{height:400px!important;min-height:400px!important}
+}
+@media(max-width:700px){
+ body:not([data-page]) .hero-visual{border:0!important}
+ body:not([data-page]) .product-card .product-visual{
+  height:clamp(325px,96vw,425px)!important;min-height:0!important;
+  margin:10px 8px 0!important;
+ }
+ body:not([data-page]) .spotlight-visual{height:clamp(335px,88vw,420px)!important;min-height:0!important}
+ body[data-page] .md-phone-catalog .md-tile-visual{
+  height:clamp(330px,93vw,420px)!important;min-height:0!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body:not([data-page]) .product-card .product-visual img,
+ body:not([data-page]) .spotlight-visual img,
+ body[data-page] .md-phone-catalog .md-tile-visual img{transition:none!important}
+}
